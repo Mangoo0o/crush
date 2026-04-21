@@ -82,6 +82,8 @@ body {
   height: 230px;
   z-index: 10;
   cursor: pointer;
+  /* Resetting margin to let parent handle centering */
+  margin: 0; 
 }
 
 .envelope {
@@ -141,32 +143,21 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 25px;
-  height: 25px;
-  background: var(--heart-color);
+  width: 50px;
+  height: 50px;
   z-index: 4;
-  transform: translate(-50%, -20%) rotate(-45deg);
-  transition: transform 0.5s ease-in-out 1s;
-  box-shadow: 0 1px 6px var(--shadow-color);
-  background: var(--bg-envelope-color); /* Added back to envelope specifically */
+  transform: translate(-50%, -20%);
+  transition: transform 0.8s ease-in-out 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--heart-color);
+  filter: drop-shadow(0 2px 8px var(--shadow-color));
 }
 
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: var(--heart-color);
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -12.5px;
-}
-
-.heart::after {
-  right: -12.5px;
+.flap .heart {
+  transform: translate(-50%, -20%) scale(1.3) rotate(360deg);
+  transition-delay: 0.4s;
 }
 
 .flap .envelope::before {
@@ -181,6 +172,6 @@ body {
 }
 
 .flap .heart {
-  transform: translate(-50%, -20%) rotate(45deg);
+  transform: translate(-50%, -20%) scale(1.2) rotate(360deg);
   transition-delay: 0.4s;
 }
