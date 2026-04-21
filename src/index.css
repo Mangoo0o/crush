@@ -10,7 +10,7 @@
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
   --envelope-cover: #e6cfa7;
-  --bg-letter-color: #ffffff;
+  --bg-letter-color: #fffdf5; /* Light cream */
   --shadow-color: rgba(0, 0, 0, 0.2);
   --txt-color: #444;
   --heart-color: #ff6b81;
@@ -182,7 +182,7 @@ body {
   left: 50%;
   width: 60px;
   height: 60px;
-  z-index: 6;
+  z-index: 3; /* Lower than letter (5) but above cover (2) */
   transform: translate(-50%, -20%);
   transition: transform 0.8s ease-in-out 0.4s;
   display: flex;
