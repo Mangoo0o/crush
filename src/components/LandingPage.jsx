@@ -19,7 +19,7 @@ const LandingPage = ({ onEnter }) => {
         onClick={handleClick}
       >
         <div className="envelope">
-          <div className={`letter transition-all duration-1000 ${isOpen ? 'h-[500px] -translate-y-[250px] overflow-y-auto custom-scrollbar' : 'h-full'}`}>
+          <div className="letter custom-scrollbar">
             <div className="text px-6 py-8">
               {!isOpen ? (
                 <div className="animate-pulse">
