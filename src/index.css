@@ -49,11 +49,9 @@ body {
 .envelope-wrapper {
   background: var(--bg-envelope-color);
   box-shadow: 0 0 40px var(--shadow-color);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
 }
 
 .envelope {
@@ -186,38 +184,45 @@ body {
   border-radius: 10px;
 }
 
-/* Spotify Button Styles */
-.spotify-btn {
-  position: absolute;
-  top: calc(50% + 220px);
-  left: 50%;
-  transform: translateX(-50%);
+.envelope-wrapper-container {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  color: #1DB954;
-  font-family: var(--font-main);
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
-  z-index: 100;
-}
-
-.spotify-btn:hover {
-  transform: translateX(-50%) translateY(-5px);
-  background: white;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.spotify-icon {
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Cute Button Styles */
+.cute-button {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #ff6b81;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 14px;
+  width: fit-content;
+  box-shadow: 0 8px 20px rgba(255, 107, 129, 0.2);
+  border: 2px solid #ff6b81;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+  text-transform: lowercase;
+}
+
+.cute-button:hover {
+  transform: scale(1.1);
+  background: #ff6b81;
+  color: white;
+  box-shadow: 0 12px 25px rgba(255, 107, 129, 0.3);
+}
+
+.heart-icon {
+  font-size: 18px;
 }
