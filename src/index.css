@@ -1,19 +1,14 @@
 :root {
-  --primary-pink: #ffc0cb;
-  --soft-blue: #87ceeb;
-  --floral-white: #fffaf0;
-  --misty-rose: #ffe4e1;
-  --font-main: 'Outfit', sans-serif;
-  --font-alt: 'Inter', sans-serif;
-
-  /* Envelope Variables */
+  --primary: white;
+  --bg-color: #254336;
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
   --envelope-cover: #e6cfa7;
-  --bg-letter-color: #fffdf5; /* Light cream */
-  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-color: #1c1c1c;
+  --heart-color: #c2465d;
+  --font-main: 'Outfit', sans-serif;
+  --font-alt: 'Inter', sans-serif;
   --txt-color: #444;
-  --heart-color: #ff6b81;
 }
 
 * {
@@ -25,7 +20,7 @@
 
 body {
   font-family: var(--font-main);
-  background: var(--floral-white);
+  background: var(--bg-color);
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -35,77 +30,46 @@ body {
 #root {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .iphone-container {
   width: 100%;
   max-width: 428px;
-  /* iPhone 12 Pro Max width */
   height: 100vh;
   max-height: 926px;
-  /* iPhone 12 Pro Max height */
+  margin: 0 auto;
   position: relative;
-  background-image: url('/background.jpg');
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  background: var(--bg-color);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
 }
 
-.glass-panel {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 24px;
-}
-
-.title-text {
-  font-family: var(--font-main);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.body-text {
-  font-family: var(--font-alt);
-  font-weight: 400;
-}
-
-/* Envelope Styles adapted from GitHub project */
-
+/* User Snippet Styles */
 .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 230px;
-  z-index: 10;
-  cursor: pointer;
-  perspective: 1000px;
+  transition: all 0.3s ease;
 }
 
 .envelope {
   position: relative;
-  width: 300px;
-  height: 230px;
-  filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.1));
+  width: 350px;
+  height: 250px;
 }
 
 .envelope::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   z-index: 2;
   border-top: 130px solid var(--envelope-tab);
-  border-right: 150px solid transparent;
-  border-left: 150px solid transparent;
+  border-right: 175px solid transparent;
+  border-left: 175px solid transparent;
   transform-origin: top;
   transition: all 0.5s ease-in-out 0.7s;
 }
@@ -114,43 +78,101 @@ body {
   content: "";
   position: absolute;
   z-index: 2;
-  width: 0;
-  height: 0;
+  width: 0px;
+  height: 0px;
   border-top: 130px solid transparent;
-  border-right: 150px solid var(--envelope-cover);
-  border-bottom: 100px solid var(--envelope-cover);
-  border-left: 150px solid var(--envelope-cover);
-  top: 0;
+  border-right: 175px solid var(--envelope-cover);
+  border-bottom: 120px solid var(--envelope-cover);
+  border-left: 175px solid var(--envelope-cover);
+}
+
+.envelope .letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+  z-index: 1;
+}
+
+.envelope .letter .text {
+  font-family: "Caveat", cursive;
+  font-style: normal;
+  color: var(--txt-color);
+  text-align: justify;
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+.text strong {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.sincerely {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -7.5px;
   left: 0;
 }
 
-.letter {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  background: var(--bg-letter-color);
-  z-index: 1;
-  transition: all 1s ease-in-out;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow-y: hidden;
-  border-radius: 12px;
+.heart:after {
+  right: 7.5px;
+  top: 0;
 }
 
-.flap .letter {
-  z-index: 20; /* Very high to be on top of everything */
-  height: 420px; /* Restoring a better height for readability */
-  transform: translateY(-160px) scale(1.05);
-  overflow-y: auto;
+/* Flap logic */
+.envelope-wrapper.flap .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope-wrapper.flap .envelope .letter {
+  bottom: 100px;
+  transform: scale(1.5);
   transition-delay: 1s;
-  border-radius: 20px;
+  z-index: 2;
 }
 
-.flap .letter {
-  z-index: 5;
+.envelope-wrapper.flap .heart {
+  transform: translate(-50%, -20%) rotate(90deg);
+  transition-delay: 0.4s;
 }
 
+/* Scrollbar reset */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
@@ -160,52 +182,6 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 182, 193, 0.4);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 182, 193, 0.6);
-}
-
-.letter .text {
-  font-family: var(--font-alt);
-  color: var(--txt-color);
-  text-align: left;
-  font-size: 14px; /* Increased for readability */
-  line-height: 1.6;
-}
-
-.heart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  z-index: 3; /* Lower than letter (5) but above cover (2) */
-  transform: translate(-50%, -20%);
-  transition: transform 0.8s ease-in-out 0.4s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--heart-color);
-  filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.15));
-}
-
-.flap .heart {
-  transform: translate(-50%, -20%) scale(1.1) rotate(360deg);
-  transition-delay: 0.4s;
-  z-index: 2; /* Move it behind the letter (20) and flap/cover */
-  opacity: 0.8;
-}
-
-.flap .envelope::before {
-  transform: rotateX(180deg);
-  z-index: 0;
-}
-
-
-.flap .heart {
-  transform: translate(-50%, -20%) scale(1.2) rotate(360deg);
-  transition-delay: 0.4s;
 }
