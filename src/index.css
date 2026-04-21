@@ -134,6 +134,10 @@ body {
   overflow-y: auto;
 }
 
+.flap .letter {
+  z-index: 5;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
