@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
 import LandingPage from './components/LandingPage';
-import MainContent from './components/MainContent';
 import AudioPlayer from './components/AudioPlayer';
 
 function App() {
@@ -13,16 +11,11 @@ function App() {
 
   return (
     <div className="iphone-container">
-      {/* Background audio - only plays after user interaction */}
+      {/* Background audio - local MP3 */}
       <AudioPlayer play={hasEntered} />
       
-      <AnimatePresence mode="wait">
-        {!hasEntered ? (
-          <LandingPage key="landing" onEnter={handleEnter} />
-        ) : (
-          <MainContent key="content" />
-        )}
-      </AnimatePresence>
+      {/* Unified view: The envelope persists */}
+      <LandingPage onEnter={handleEnter} />
     </div>
   );
 }
