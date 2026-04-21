@@ -4,13 +4,26 @@ const AudioPlayer = ({ play }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
+    // Attempt play when 'play' prop becomes true
     if (play && audioRef.current) {
-      // Browsers allow .play() after a user interaction (which happened on LandingPage)
       audioRef.current.play().catch(error => {
-        console.error("Local audio playback failed:", error);
+        console.log("Autoplay blocked, waiting for interaction.");
       });
     }
   }, [play]);
+
+  useEffect(() => {
+    // Fallback: Play on first click anywhere if browser blocked initial play
+    const handleFirstInteraction = () => {
+      if (audioRef.current && audioRef.current.paused) {
+        audioRef.current.play().catch(() => {});
+      }
+      window.removeEventListener('click', handleFirstInteraction);
+    };
+
+    window.addEventListener('click', handleFirstInteraction);
+    return () => window.removeEventListener('click', handleFirstInteraction);
+  }, []);
 
   return (
     <audio
