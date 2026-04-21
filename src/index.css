@@ -65,12 +65,118 @@ body {
   font-weight: 400;
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Envelope Styles adapted from GitHub project */
+:root {
+  --primary: #fff;
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: #ff6b81; /* Soft pink for heart */
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 230px;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+
+.envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0;
+  height: 0;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 100px solid var(--envelope-cover);
+  border-left: 150px solid var(--envelope-cover);
+}
+
+.letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+}
+
+.letter .text {
+  font-family: var(--font-alt);
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 10px;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(-45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: var(--heart-color);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -12.5px;
+}
+
+.heart::after {
+  right: -12.5px;
+}
+
+.flap .envelope::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.flap .envelope .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+
+.flap .heart {
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition-delay: 0.4s;
 }
