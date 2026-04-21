@@ -136,8 +136,8 @@ body {
 
 .flap .letter {
   z-index: 5;
-  height: 540px;
-  transform: translateY(-320px) scale(1.1);
+  height: 480px;
+  transform: translateY(-240px) scale(1.05);
   overflow-y: auto;
   transition-delay: 1s;
 }
