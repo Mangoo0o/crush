@@ -17,6 +17,7 @@ const AudioPlayer = ({ play }) => {
       ref={audioRef}
       src="/music.mp3"
       loop
+      autoPlay
       style={{ display: 'none' }}
     />
   );

@@ -11,8 +11,8 @@ function App() {
 
   return (
     <div className="iphone-container">
-      {/* Background audio - local MP3 */}
-      <AudioPlayer play={hasEntered} />
+      {/* Background audio - set to play on load */}
+      <AudioPlayer play={true} />
       
       {/* Unified view: The envelope persists */}
       <LandingPage onEnter={handleEnter} />
