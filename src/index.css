@@ -5,6 +5,15 @@
   --misty-rose: #ffe4e1;
   --font-main: 'Outfit', sans-serif;
   --font-alt: 'Inter', sans-serif;
+  
+  /* Envelope Variables */
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --bg-letter-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: #ff6b81;
 }
 
 * {
@@ -66,15 +75,6 @@ body {
 }
 
 /* Envelope Styles adapted from GitHub project */
-:root {
-  --primary: #fff;
-  --bg-envelope-color: #f5edd1;
-  --envelope-tab: #ecdeb8;
-  --envelope-cover: #e6cfa7;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --txt-color: #444;
-  --heart-color: #ff6b81; /* Soft pink for heart */
-}
 
 .envelope-wrapper {
   position: absolute;
@@ -137,8 +137,9 @@ body {
 .flap .letter {
   z-index: 5;
   height: 540px;
-  transform: translateY(-300px);
+  transform: translateY(-320px) scale(1.1);
   overflow-y: auto;
+  transition-delay: 1s;
 }
 
 .flap .letter {
@@ -195,11 +196,6 @@ body {
   z-index: 0;
 }
 
-.flap .envelope .letter {
-  bottom: 100px;
-  transform: scale(1.5);
-  transition-delay: 1s;
-}
 
 .flap .heart {
   transform: translate(-50%, -20%) scale(1.2) rotate(360deg);
