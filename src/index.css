@@ -77,13 +77,14 @@ body {
 }
 
 .envelope-wrapper {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 300px;
   height: 230px;
   z-index: 10;
   cursor: pointer;
-  /* Resetting margin to let parent handle centering */
-  margin: 0; 
 }
 
 .envelope {
