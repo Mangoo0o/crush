@@ -1,6 +1,6 @@
 :root {
   --primary: white;
-  --bg-color: #254336;
+  --bg-color: #f9d1d1;
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
   --envelope-cover: #e6cfa7;
@@ -20,7 +20,7 @@
 
 body {
   font-family: var(--font-main);
-  background: var(--bg-color);
+  background: linear-gradient(135deg, #fce4ec 0%, #f9d1d1 100%);
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -184,4 +184,40 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+}
+
+/* Spotify Button Styles */
+.spotify-btn {
+  position: absolute;
+  top: calc(50% + 220px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #1DB954;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.spotify-btn:hover {
+  transform: translateX(-50%) translateY(-5px);
+  background: white;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.spotify-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
