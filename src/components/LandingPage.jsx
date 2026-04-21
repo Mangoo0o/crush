@@ -66,9 +66,10 @@ const LandingPage = ({ onEnter }) => {
               )}
             </div>
           </div>
-        </div>
-        <div className="heart">
-          <Heart fill="currentColor" size={40} strokeWidth={1} />
+          {/* Heart is now inside the envelope to share stacking context */}
+          <div className="heart">
+            <Heart fill="currentColor" size={40} strokeWidth={1} />
+          </div>
         </div>
       </div>
     </div>
