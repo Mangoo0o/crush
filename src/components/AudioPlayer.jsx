@@ -14,6 +14,7 @@ const AudioPlayer = ({ play }) => {
     playerRef.current = event.target;
     // Attempt playback immediately if the play signal is already true
     if (play) {
+      console.log('AudioPlayer: Triggering playback');
       event.target.playVideo();
     }
   };
