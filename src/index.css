@@ -5,7 +5,7 @@
   --misty-rose: #ffe4e1;
   --font-main: 'Outfit', sans-serif;
   --font-alt: 'Inter', sans-serif;
-  
+
   /* Envelope Variables */
   --bg-envelope-color: #f5edd1;
   --envelope-tab: #ecdeb8;
@@ -42,14 +42,16 @@ body {
 
 .iphone-container {
   width: 100%;
-  max-width: 428px; /* iPhone 12 Pro Max width */
+  max-width: 428px;
+  /* iPhone 12 Pro Max width */
   height: 100vh;
-  max-height: 926px; /* iPhone 12 Pro Max height */
+  max-height: 926px;
+  /* iPhone 12 Pro Max height */
   position: relative;
   background-image: url('/background.jpg');
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -130,14 +132,15 @@ body {
   background: var(--bg-letter-color);
   z-index: 1;
   transition: all 1s ease-in-out;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  overflow-y: hidden; /* Only auto when open */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  overflow-y: hidden;
+  /* Only auto when open */
 }
 
 .flap .letter {
   z-index: 5;
-  height: 480px;
-  transform: translateY(-240px) scale(1.05);
+  height: 420px;
+  transform: translateY(-160px) scale(1.05);
   overflow-y: auto;
   transition-delay: 1s;
 }
